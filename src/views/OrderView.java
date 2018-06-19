@@ -91,7 +91,7 @@ public class OrderView {
                     scene = new Scene(loader.load());
 
                     stage.setScene(scene);
-                    stage.setTitle("Orderer");
+                    stage.setTitle("Add Comment");
                     stage.show();
                 } catch (IOException ex) {
                     Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
@@ -126,6 +126,5 @@ public class OrderView {
     public Button getAddComment() {
         return addComment;
     }
-    
-    
+   
 }

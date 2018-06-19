@@ -7,7 +7,10 @@ package foodordering.orderer.meals.addcomment;
 
 import beans.Comment;
 import beans.Meal;
+import beans.Order;
 import beans.Orderer;
+import beans.Restaurant;
+import foodordering.orderer.order.meals.MealsController;
 import foodordering.orderer.welcome.OrdererWelcomeController;
 import foodordering.ui.main.Main;
 import java.io.IOException;
@@ -32,12 +35,16 @@ import javafx.stage.Stage;
 public class AddCommentController implements Initializable {
     Orderer orderer;
     Meal meal;
+    Restaurant restaurant;
+    Order order;
     
     @FXML private TextField comment;
     
-    public AddCommentController(Orderer orderer, Meal meal) {
+    public AddCommentController(Orderer orderer, Meal meal, Restaurant restaurant, Order order) {
         this.orderer = orderer;
         this.meal = meal;
+        this.restaurant = restaurant;
+        this.order = order;
     }
 
     /**
@@ -70,16 +77,16 @@ public class AddCommentController implements Initializable {
     private void handleBack(ActionEvent event) {
         try {
 
-            OrdererWelcomeController ordererWelcomeController = new OrdererWelcomeController(orderer);
+            MealsController mealsController = new MealsController(orderer, restaurant, order);
             
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/foodordering/orderer/welcome/orderer-welcome.fxml"));
-            loader.setController(ordererWelcomeController);
+            loader.setLocation(getClass().getResource("/foodordering/orderer/order/meals/meals.fxml"));
+            loader.setController(mealsController);
 
             Stage stage = Main.getPrimaryStage();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
-            stage.setTitle("orderer");
+            stage.setTitle("Meals");
             stage.show();
 
         } catch (IOException ex) {

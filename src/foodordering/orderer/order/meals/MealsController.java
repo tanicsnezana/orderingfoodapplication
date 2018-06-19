@@ -72,7 +72,7 @@ public class MealsController implements Initializable {
         kindAndCategoryCol.setCellValueFactory(new PropertyValueFactory<>("kindAndCategory"));
         imageCol.setCellValueFactory(new PropertyValueFactory<>("image"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
-        addCommentCol.setCellValueFactory(new PropertyValueFactory<>("addCommentButton"));
+        addCommentCol.setCellValueFactory(new PropertyValueFactory<>("addComment"));
     }
     
     private void loadData() {
@@ -83,7 +83,7 @@ public class MealsController implements Initializable {
             String kindAndCategory = meal.getKind() + "\n\n"  + meal.getCategory();
             String imageSrc = meal.getImageSrc();
             String price = Double.toString(meal.getPrice());
-            MealViewOrdered mealViewOrdered = new MealViewOrdered(name, kindAndCategory, imageSrc, restuarant, price, orderer);
+            MealViewOrdered mealViewOrdered = new MealViewOrdered(name, kindAndCategory, imageSrc, restuarant, price, orderer, order);
             return mealViewOrdered;            
         }).forEach((mealViewOrdered) -> {
             mealsList.add(mealViewOrdered);
