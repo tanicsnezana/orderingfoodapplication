@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="680.0" prefWidth="737.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <TabPane prefHeight="646.0" prefWidth="710.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="0" GridPane.rowIndex="0">
+    <Tab text="Add Comment">
+      <content>
+        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <children>
+            <TextField fx:id="comment" layoutX="100.0" layoutY="88.0" prefHeight="150.0" prefWidth="511.0" />
+            <Button layoutX="100.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleAddComment" text="Add Comment" />
+            <Button layoutX="639.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+          </children>
+        </AnchorPane>
+      </content>
+    </Tab>
+  </TabPane>
+</GridPane>
