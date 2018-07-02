@@ -71,6 +71,7 @@ public class OrdererWelcomeController implements Initializable {
     @FXML TableColumn<OrderView, String> restaurantNameCol;
     @FXML TableColumn<OrderView, Button> showMealsCol;
     @FXML TableColumn<OrderView, Button> addCommentCol;
+    @FXML TableColumn<OrderView, Button> markRestaurantCol;
     
     // restaurants
     
@@ -260,6 +261,7 @@ public class OrdererWelcomeController implements Initializable {
         restaurantNameCol.setCellValueFactory(new PropertyValueFactory<>("restaurantName"));
         showMealsCol.setCellValueFactory(new PropertyValueFactory<>("showMeals"));
         addCommentCol.setCellValueFactory(new PropertyValueFactory<>("addComment"));
+        markRestaurantCol.setCellValueFactory(new PropertyValueFactory<>("markRestaurant"));
     }
     
     private void loadDataOrderTable() {

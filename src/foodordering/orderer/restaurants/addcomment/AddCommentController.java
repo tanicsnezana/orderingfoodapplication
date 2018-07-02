@@ -21,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -59,11 +60,18 @@ public class AddCommentController implements Initializable {
             resturant.setComments(new LinkedList<>());
         }
         
-        Comment comment = new Comment();
-        comment.setComment(commentContent);
-        comment.setOrderer(orderer);
+        Comment _comment = new Comment();
+        _comment.setComment(commentContent);
+        _comment.setOrderer(orderer);
         
-        resturant.getComments().add(comment);
+        resturant.getComments().add(_comment);
+        
+        comment.clear();
+        
+        Alert info = new Alert(Alert.AlertType.INFORMATION);
+        info.setContentText("Successfully added comment!");
+        info.showAndWait();
+        
     }
     
     @FXML 

@@ -21,11 +21,12 @@ public class Restaurant {
     private List<Comment> comments;
     private List<Meal> meals;
     private String imageSrc;
-    private double mark;
+    private double mark = 0;
     private boolean payingByCard;
     private boolean payingByCash;
     private boolean isGuest = false;
     private Orderer orderer = null;
+    private int markNum = 0;
 
     public Orderer getOrderer() {
         return orderer;
@@ -37,6 +38,14 @@ public class Restaurant {
     
     public boolean isIsGuest() {
         return isGuest;
+    }
+    
+    public int getMarkNum() {
+        return markNum;
+    }
+    
+    public void setMarkNum(int markNum) {
+        this.markNum = markNum;
     }
 
     public void setIsGuest(boolean isGuest) {

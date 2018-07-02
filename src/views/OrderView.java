@@ -11,6 +11,7 @@ import beans.Orderer;
 import beans.Restaurant;
 import eventhandlers.EventHandlerRestaurant;
 import foodordering.orderer.order.meals.MealsController;
+import foodordering.orderer.restaurant.mark.MarkRestaurantController;
 import foodordering.orderer.restaurants.addcomment.AddCommentController;
 import foodordering.ui.main.Main;
 import java.io.IOException;
@@ -34,6 +35,7 @@ public class OrderView {
     private final String restaurantName;
     private final Button showMeals;
     private final Button addComment;
+    private final Button markRestaurant;
     private final Orderer orderer;
     private final Order order;
     
@@ -74,6 +76,32 @@ public class OrderView {
         
         });
         
+        this.markRestaurant = new Button("Mark");
+        this.markRestaurant.setOnAction(new EventHandlerRestaurant(findRestaurant(restaurantName)) {
+
+            @Override
+            public void handle(Event event) {
+                try {
+                    MarkRestaurantController mealsController = new MarkRestaurantController(orderer, restaurant);
+
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/foodordering/orderer/restaurant/mark/mark-restaurant.fxml"));
+                    loader.setController(mealsController);
+
+                    Stage stage = Main.getPrimaryStage();
+                    Scene scene;
+                    scene = new Scene(loader.load());
+
+                    stage.setScene(scene);
+                    stage.setTitle("Mark");
+                    stage.show();
+                } catch (IOException ex) {
+                    Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        );
+        
         this.addComment = new Button("Add Comment");
         this.addComment.setOnAction(new EventHandlerRestaurant(findRestaurant(restaurantName)) {
 
@@ -111,6 +139,10 @@ public class OrderView {
         return null;
     }
 
+    public Button getMarkRestaurant() {
+        return markRestaurant;
+    }
+    
     public ImageView getRestaurantImage() {
         return restaurantImage;
     }
